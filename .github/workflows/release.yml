@@ -8,6 +8,9 @@ permissions:
   packages: write
 
 on:
+  workflow_dispatch:
+    branches:
+      - release
   push:
     branches:
       - release
