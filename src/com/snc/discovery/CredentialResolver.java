@@ -123,11 +123,11 @@ public class CredentialResolver implements IExternalCredential{
 			throw new RuntimeException("Empty credential Id or type found.");
 		}
 
-		if (credType == "snmpv3") {
+//		if (credType == "snmpv3") {
 //			snmpv3PrivacyCredId = (String) args.get(SNMPV3_ARG_PRIVACY_ID);
 //			if ((String) args.get(SNMPV3_ARG_PRIVACY_ID) == null) {
 //				throw new RuntimeException("Empty Privacy credential Id");
-			}
+//			}
 		}
 
 		// the resolved credential is returned in a HashMap...
