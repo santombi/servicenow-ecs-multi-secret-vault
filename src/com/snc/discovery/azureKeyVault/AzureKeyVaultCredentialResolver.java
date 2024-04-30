@@ -104,9 +104,12 @@ public class AzureKeyVaultCredentialResolver extends CredentialResolver {
             KeyVaultSecret retrievedSecret = secretClient.getSecret(credId);
 
             if (credType == "snmpv3") {
-              //  snmpv3PrivacyCredSecret = secretClient.getSecret(snmpv3PrivacyCredId);
-	//	snmpv3PrivacyCredSecret = secretClient.getSecret(credId);
-          //      snmpv3PrivacyKeyTags = snmpv3PrivacyCredSecret.getProperties().getTags();
+			      snmpv3PrivacyCredId1 = (String) args.get(SNMPV3_ARG_PRIVACY_ID);
+				  snmpv3PrivacyCredId = credId;
+				  fLogger.info("snmpv3PrivacyCredId1: " + snmpv3PrivacyCredId1);
+			      fLogger.info("snmpv3PrivacyCredId: " + snmpv3PrivacyCredId);
+//                snmpv3PrivacyCredSecret = secretClient.getSecret(snmpv3PrivacyCredId);
+//                snmpv3PrivacyKeyTags = snmpv3PrivacyCredSecret.getProperties().getTags();
             }
 
             tags = retrievedSecret.getProperties().getTags();
@@ -181,9 +184,12 @@ public class AzureKeyVaultCredentialResolver extends CredentialResolver {
                 case "snmpv3":
                     username = tags.get("username").trim();
                     snmpv3AuthProtocol = tags.get("snmpv3_auth_protocol").trim();
+					fLogger.info("snmpv3AuthProtocol: " + snmpv3AuthProtocol);
                     snmpv3AuthKey = tags.get("snmpv3_auth_key").trim();
+					fLogger.info("snmpv3AuthKey: " + snmpv3AuthKey);
                     snmpv3PrivacyProtocol = tags.get("snmpv3_privacy_protocol").trim();
-                    snmpv3PrivacyKey = retrievedSecret.getValue();
+					fLogger.info("snmpv3PrivacyProtocol: " + snmpv3PrivacyProtocol);
+                    snmpv3PrivacyKey = snmpv3PrivacyCredSecret.getValue();
 
                     result.put(VAL_USER, username);
                     result.put(SNMPV3_AUTHENTICATION_PROTOCOL, snmpv3AuthProtocol);
