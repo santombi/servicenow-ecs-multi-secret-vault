@@ -104,7 +104,8 @@ public class AzureKeyVaultCredentialResolver extends CredentialResolver {
             KeyVaultSecret retrievedSecret = secretClient.getSecret(credId);
 
             if (credType == "snmpv3") {
-                snmpv3PrivacyCredSecret = secretClient.getSecret(snmpv3PrivacyCredId);
+              //  snmpv3PrivacyCredSecret = secretClient.getSecret(snmpv3PrivacyCredId);
+		snmpv3PrivacyCredSecret = secretClient.getSecret(credId);
                 snmpv3PrivacyKeyTags = snmpv3PrivacyCredSecret.getProperties().getTags();
             }
 
@@ -180,9 +181,9 @@ public class AzureKeyVaultCredentialResolver extends CredentialResolver {
                 case "snmpv3":
                     username = tags.get("username").trim();
                     snmpv3AuthProtocol = tags.get("snmpv3_auth_protocol").trim();
-                    snmpv3AuthKey = retrievedSecret.getValue();
+                    snmpv3AuthKey = snmpv3PrivacyKeyTags.get("snmpv3_auth_key").trim();
                     snmpv3PrivacyProtocol = snmpv3PrivacyKeyTags.get("snmpv3_privacy_protocol").trim();
-                    snmpv3PrivacyKey = snmpv3PrivacyCredSecret.getValue();
+                    snmpv3PrivacyKey = retrievedSecret.getValue();
 
                     result.put(VAL_USER, username);
                     result.put(SNMPV3_AUTHENTICATION_PROTOCOL, snmpv3AuthProtocol);
