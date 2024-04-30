@@ -125,8 +125,8 @@ public class CredentialResolver implements IExternalCredential{
 
 		if (credType == "snmpv3") {
 //			snmpv3PrivacyCredId = (String) args.get(SNMPV3_ARG_PRIVACY_ID);
-			if ((String) args.get(SNMPV3_ARG_PRIVACY_ID) == null) {
-				throw new RuntimeException("Empty Privacy credential Id");
+//			if ((String) args.get(SNMPV3_ARG_PRIVACY_ID) == null) {
+//				throw new RuntimeException("Empty Privacy credential Id");
 			}
 		}
 
