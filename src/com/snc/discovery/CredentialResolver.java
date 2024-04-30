@@ -124,9 +124,9 @@ public class CredentialResolver implements IExternalCredential{
 		}
 
 		if (credType == "snmpv3") {
-			snmpv3PrivacyCredId1 = (String) args.get(SNMPV3_ARG_PRIVACY_ID);
+	//		snmpv3PrivacyCredId1 = (String) args.get(SNMPV3_ARG_PRIVACY_ID);
 			snmpv3PrivacyCredId = credId;
-			fLogger.info("snmpv3PrivacyCredId1: " + snmpv3PrivacyCredId1);
+	//		fLogger.info("snmpv3PrivacyCredId1: " + snmpv3PrivacyCredId1);
 			fLogger.info("credId: " + credId);
 			if (snmpv3PrivacyCredId == null) {
 				throw new RuntimeException("Empty Privacy credential Id");
