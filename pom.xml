@@ -6,7 +6,7 @@
 
     <properties>
         <midserver.agent.dir>${basedir}/libs</midserver.agent.dir>
-        <git.repository>arumugamsubramanian/servicenow-ecs-multi-secret-vault</git.repository>
+        <git.repository>santombi/servicenow-ecs-multi-secret-vault2</git.repository>
     </properties>
 
     <scm>
