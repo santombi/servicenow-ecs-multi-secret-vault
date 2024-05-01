@@ -32,7 +32,7 @@ public class CredentialResolver implements IExternalCredential{
 	public static final String AZURE_TENANT_ID = "tenant_id";
 //	public static final String AWS_ACCESS_KEY = "AWSServiceAccount.aws.user";
 //	public static final String AWS_SECRET_KEY = "AWSServiceAccount.aws.pswd";
-	public static final String SNMPV3_ARG_PRIVACY_ID = "privacy_credential_id";
+//	public static final String SNMPV3_ARG_PRIVACY_ID = "privacy_credential_id";
 	public static final String SNMPV3_AUTHENTICATION_PROTOCOL = "authentication_protocol";
 	public static final String SNMPV3_AUTHENTICATION_KEY = "authentication_key";
 	public static final String SNMPV3_PRIVACY_PROTOCOL = "privacy_protocol";
@@ -126,8 +126,8 @@ public class CredentialResolver implements IExternalCredential{
 		if (credType == "snmpv3") {
 	//		snmpv3PrivacyCredId1 = (String) args.get(SNMPV3_ARG_PRIVACY_ID);
 			snmpv3PrivacyCredId = credId;
-	//		fLogger.info("snmpv3PrivacyCredId1: " + snmpv3PrivacyCredId1);
-			fLogger.info("credId: " + credId);
+			fLogger.info("credentialresolver.java - snmpv3PrivacyCredId: " + snmpv3PrivacyCredId);
+			fLogger.info("credentialresolver.java - credId: " + credId);
 			if (snmpv3PrivacyCredId == null) {
 				throw new RuntimeException("Empty Privacy credential Id");
 			}
